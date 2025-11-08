@@ -76,7 +76,7 @@ export default function CustomPortableText({
     },
     marks: {
       link: ({children, value: link}) => {
-        return <ResolvedLink link={link}>{children}</ResolvedLink>
+        return <ResolvedLink link={{...link, openInNewTab: true}} >{children}</ResolvedLink>
       },
     },
   }

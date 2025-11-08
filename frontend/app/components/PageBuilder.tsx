@@ -34,6 +34,7 @@ function renderSections(pageBuilderSections: PageBuilderSection[], page: GetPage
   }
   return (
     <div
+    className="grid md:grid-cols-2"
       data-sanity={dataAttr({
         id: page._id,
         type: page._type,
@@ -41,13 +42,16 @@ function renderSections(pageBuilderSections: PageBuilderSection[], page: GetPage
       }).toString()}
     >
       {pageBuilderSections.map((block: any, index: number) => (
-        <BlockRenderer
-          key={block._key}
-          index={index}
-          block={block}
-          pageId={page._id}
-          pageType={page._type}
-        />
+        
+        <div className="col-span-1" key={block._key}>
+          <BlockRenderer
+            key={block._key}
+            index={index}
+            block={block}
+            pageId={page._id}
+            pageType={page._type}
+          />
+        </div>
       ))}
     </div>
   )

@@ -13,6 +13,13 @@
  */
 
 // Source: schema.json
+export type MediaItem = {
+  _type: 'mediaItem'
+  title: string
+  category: 'music' | 'news' | 'reading' | 'images' | 'videos'
+  url: string
+}
+
 export type CallToAction = {
   _type: 'callToAction'
   heading: string
@@ -183,6 +190,9 @@ export type Page = {
     | ({
         _key: string
       } & InfoSection)
+    | ({
+        _key: string
+      } & MediaItem)
   >
 }
 
@@ -397,25 +407,25 @@ export type SanityImagePalette = {
 
 export type SanityImageDimensions = {
   _type: 'sanity.imageDimensions'
-  height?: number
-  width?: number
-  aspectRatio?: number
+  height: number
+  width: number
+  aspectRatio: number
 }
 
 export type SanityImageHotspot = {
   _type: 'sanity.imageHotspot'
-  x?: number
-  y?: number
-  height?: number
-  width?: number
+  x: number
+  y: number
+  height: number
+  width: number
 }
 
 export type SanityImageCrop = {
   _type: 'sanity.imageCrop'
-  top?: number
-  bottom?: number
-  left?: number
-  right?: number
+  top: number
+  bottom: number
+  left: number
+  right: number
 }
 
 export type SanityFileAsset = {
@@ -495,6 +505,7 @@ export type SanityAssetSourceData = {
 }
 
 export type AllSanitySchemaTypes =
+  | MediaItem
   | CallToAction
   | Link
   | InfoSection
@@ -636,6 +647,13 @@ export type GetPageQueryResult = {
           _type: 'block'
           _key: string
         }> | null
+      }
+    | {
+        _key: string
+        _type: 'mediaItem'
+        title: string
+        category: 'images' | 'music' | 'news' | 'reading' | 'videos'
+        url: string
       }
   > | null
 } | null

@@ -19,6 +19,9 @@ export default function Footer() {
             <a href="https://nextjs.org/docs" className="mx-3 hover:underline font-mono">
               Read Next.js Documentation
             </a>
+            <a href="/archive" className="mx-3 hover:underline font-mono">
+              View Archive
+            </a>
           </div>
         </div>
       </div>
